@@ -27,6 +27,7 @@ export interface IDraftMessage {
     imageLink?: string,
     summary?: string,
     author: string,
+    pollType: string,
     buttonTitle?: string,
     buttonLink?: string,
     teams: any[],
@@ -57,6 +58,9 @@ export interface formState {
     selectedRosters: dropdownItem[],
     errorImageUrlMessage: string,
     errorButtonUrlMessage: string,
+    supportedPollTypes: string[],
+    pollType: dropdownItem[],
+    selectedPollType: dropdownItem[]
 }
 
 export interface INewMessageProps extends RouteComponentProps {
@@ -93,6 +97,9 @@ export default class NewMessage extends React.Component<INewMessageProps, formSt
             selectedRosters: [],
             errorImageUrlMessage: "",
             errorButtonUrlMessage: "",
+            supportedPollTypes: [],
+            pollType: [],
+            selectedPollType: []
         }
     }
 
@@ -101,6 +108,12 @@ export default class NewMessage extends React.Component<INewMessageProps, formSt
         //- Handle the Esc key
         document.addEventListener("keydown", this.escFunction, false);
         let params = this.props.match.params;
+        this.getPollTypes().then(() => {
+            const supportedPollTypes = this.makePollTypesDropdownItemList(this.state.supportedPollTypes);
+            this.setState({
+                pollType: supportedPollTypes,
+            });
+        });
         this.getTeamList().then(() => {
             if ('id' in params) {
                 let id = params['id'];
@@ -132,6 +145,14 @@ export default class NewMessage extends React.Component<INewMessageProps, formSt
         });
     }
 
+    private makePollTypesDropdownItemList = (items: any[]) => {
+        const dropdownItemList: dropdownItem[] = [];
+        items.forEach(element =>
+            dropdownItemList.push(element)
+        );
+        return dropdownItemList;
+    }
+
     private makeDropdownItemList = (items: any[], fromItems: any[] | undefined) => {
         const dropdownItemList: dropdownItem[] = [];
         items.forEach(element =>
@@ -152,7 +173,14 @@ export default class NewMessage extends React.Component<INewMessageProps, formSt
         setCardImageLink(card, imgUrl);
         setCardSummary(card, "Summary");
         setCardAuthor(card, "- Author");
-        setCardBtn(card, "Button title", "https://adaptivecards.io");
+        setCardBtn(card, "Vote", "");
+    }
+
+    private getPollTypes = async () => {
+        const pollTypes: string[] = ["On a scale of 1-5", "On a scale of 1-10", "On a scale of Agree-Disagree"];
+        this.setState({
+            supportedPollTypes: pollTypes
+        });
     }
 
     private getTeamList = async () => {
@@ -258,6 +286,13 @@ export default class NewMessage extends React.Component<INewMessageProps, formSt
                                     placeholder="Author"
                                     onChange={this.onAuthorChanged}
                                     autoComplete="off"
+                                />
+
+                                <div>Select your Poll Type:</div>
+                                <Dropdown
+                                    items={this.state.pollType}
+                                    value={this.state.selectedPollType}
+                                    onSelectedChange={this.onPollTypeChanged}
                                 />
 
                                 <Input
@@ -397,6 +432,12 @@ export default class NewMessage extends React.Component<INewMessageProps, formSt
         return resultedTeams;
     }
 
+    private onPollTypeChanged = (event: any, itemsData: any) => {
+        this.setState({
+            selectedPollType: itemsData.value
+        })
+    }
+
     private onTeamsChange = (event: any, itemsData: any) => {
         this.setState({
             selectedTeams: itemsData.value,
@@ -431,7 +472,8 @@ export default class NewMessage extends React.Component<INewMessageProps, formSt
             buttonLink: this.state.btnLink,
             teams: selectedTeams,
             rosters: selctedRosters,
-            allUsers: this.state.allUsersOptionSelected
+            allUsers: this.state.allUsersOptionSelected,
+            pollType: "On a scale of 1-5"
         };
 
         if (this.state.exists) {

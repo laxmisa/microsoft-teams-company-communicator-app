@@ -70,20 +70,46 @@ export const setCardAuthor = (card: any, author?: string) => {
 }
 
 export const getCardBtnTitle = (card: any) => {
-    return card.actions[0].title;
+    return card.actions[1].title;
 }
 
 export const getCardBtnLink = (card: any) => {
-    return card.actions[0].url;
+    return card.actions[1].url;
 }
 
 export const setCardBtn = (card: any, buttonTitle?: string, buttonLink?: string) => {
-    if (buttonTitle && buttonLink) {
+    if (buttonTitle) {
         card.actions = [
             {
-                "type": "Action.OpenUrl",
-                "title": buttonTitle,
-                "url": buttonLink
+                "type": "Input.ChoiceSet",
+                "id": "myChoice",
+                "isMultiSelect": false,
+                "choices": [
+                    {
+                        "title": "1",
+                        "value": "1"
+                    },
+                    {
+                        "title": "2",
+                        "value": "2"
+                    },
+                    {
+                        "title": "3",
+                        "value": "3"
+                    },
+                    {
+                        "title": "4",
+                        "value": "4"
+                    },
+                    {
+                        "title": "5",
+                        "value": "5"
+                    }
+                ]
+            },
+            {
+                "type": "Action.Submit",
+                "title": buttonTitle
             }
         ];
     } else {

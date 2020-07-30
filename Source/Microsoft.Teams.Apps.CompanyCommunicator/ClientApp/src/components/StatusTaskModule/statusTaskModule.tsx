@@ -131,7 +131,7 @@ class StatusTaskModule extends React.Component<RouteComponentProps, IStatusState
                                 <span>{this.state.message.title}</span>
                             </div>
                             <div className="contentField">
-                                <h3>Sending started</h3>
+                                <h3>Pulse poll started</h3>
                                 <span>{this.state.message.sendingStartedDate}</span>
                             </div>
                             <div className="contentField">
@@ -144,20 +144,17 @@ class StatusTaskModule extends React.Component<RouteComponentProps, IStatusState
                             </div>
                             <div className="contentField">
                                 <h3>Results</h3>
-                                <label>Success : </label>
-                                <span>{this.state.message.succeeded}</span>
+                                <label>Rating 4 : 2 </label>
                                 <br />
-                                <label>Failure : </label>
-                                <span>{this.state.message.failed}</span>
+                                <label>Rating 5 : 1 </label>
                                 <br />
-                                <label>Throttled : </label>
-                                <span>{this.state.message.throttled}</span>
                             </div>
                             <div className="contentField">
                                 {this.renderAudienceSelection()}
                             </div>
                         </div>
-                        <div className="adaptiveCardContainer">
+                        <div className="insightsContainer">
+                            <img src="Rating.png" width="100" height="80" />
                         </div>
                     </div>
 
