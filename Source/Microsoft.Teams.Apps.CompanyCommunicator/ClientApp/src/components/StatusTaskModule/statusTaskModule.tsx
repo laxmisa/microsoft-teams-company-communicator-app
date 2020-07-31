@@ -75,7 +75,7 @@ class StatusTaskModule extends React.Component<RouteComponentProps, IStatusState
                     let adaptiveCard = new AdaptiveCards.AdaptiveCard();
                     adaptiveCard.parse(this.card);
                     let renderedCard = adaptiveCard.render();
-                    document.getElementsByClassName('adaptiveCardContainer')[0].appendChild(renderedCard);
+                    //document.getElementsByClassName('adaptiveCardContainer')[0].appendChild(renderedCard);
                     let link = this.state.message.buttonLink;
                     adaptiveCard.onExecuteAction = function (action) { window.open(link, '_blank'); }
                 });
