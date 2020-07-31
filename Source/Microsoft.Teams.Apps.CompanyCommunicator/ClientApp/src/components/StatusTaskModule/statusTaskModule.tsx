@@ -153,7 +153,7 @@ class StatusTaskModule extends React.Component<RouteComponentProps, IStatusState
                                 {this.renderAudienceSelection()}
                             </div>
                         </div>
-                        <div className="insightsContainer">
+                        <div className="adaptiveCardContainer">
                             <img src="Rating.png" width="100" height="80" />
                         </div>
                     </div>
