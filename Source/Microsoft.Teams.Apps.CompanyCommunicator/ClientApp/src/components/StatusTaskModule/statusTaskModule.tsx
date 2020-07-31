@@ -47,7 +47,7 @@ class StatusTaskModule extends React.Component<RouteComponentProps, IStatusState
     constructor(props: RouteComponentProps) {
         super(props);
 
-        this.card = getInitAdaptiveCard();
+        //this.card = getInitAdaptiveCard();
 
         this.state = {
             message: this.initMessage,
@@ -64,7 +64,7 @@ class StatusTaskModule extends React.Component<RouteComponentProps, IStatusState
                 this.setState({
                     loader: false
                 }, () => {
-                    setCardTitle(this.card, this.state.message.title);
+                    /*setCardTitle(this.card, this.state.message.title);
                     setCardImageLink(this.card, this.state.message.imageLink);
                     setCardSummary(this.card, this.state.message.summary);
                     setCardAuthor(this.card, this.state.message.author);
@@ -77,7 +77,7 @@ class StatusTaskModule extends React.Component<RouteComponentProps, IStatusState
                     let renderedCard = adaptiveCard.render();
                     //document.getElementsByClassName('adaptiveCardContainer')[0].appendChild(renderedCard);
                     let link = this.state.message.buttonLink;
-                    adaptiveCard.onExecuteAction = function (action) { window.open(link, '_blank'); }
+                    adaptiveCard.onExecuteAction = function (action) { window.open(link, '_blank'); }*/
                 });
             });
         }

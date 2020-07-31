@@ -70,6 +70,10 @@ export interface INewMessageProps extends RouteComponentProps {
 export default class NewMessage extends React.Component<INewMessageProps, formState> {
     private card: any;
 
+    private dropdownStyle = {
+        margin: '0rem 3.2rem'
+    };
+
     constructor(props: INewMessageProps) {
         super(props);
         initializeIcons();
@@ -290,6 +294,7 @@ export default class NewMessage extends React.Component<INewMessageProps, formSt
 
                                 <h6>Select your Poll Type:</h6>
                                 <Dropdown
+                                    style={this.dropdownStyle}
                                     items={this.state.pollType}
                                     value={this.state.selectedPollType}
                                     onSelectedChange={this.onPollTypeChanged}
