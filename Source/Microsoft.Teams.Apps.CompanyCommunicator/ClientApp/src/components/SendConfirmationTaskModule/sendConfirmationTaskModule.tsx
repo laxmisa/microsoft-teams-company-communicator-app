@@ -80,19 +80,12 @@ class SendConfirmationTaskModule extends React.Component<RouteComponentProps, IS
                             setCardTitle(this.card, this.state.message.title);
                             setCardImageLink(this.card, this.state.message.imageLink);
                             setCardSummary(this.card, this.state.message.summary);
-                            setCardAuthor(this.card, this.state.message.author);
-                            if (this.state.message.buttonTitle && this.state.message.buttonLink) {
-                                setCardBtn(this.card, this.state.message.buttonTitle, this.state.message.buttonLink);
-                            }
+                            setCardAuthor(this.card, this.state.message.author);                            
 
                             let adaptiveCard = new AdaptiveCards.AdaptiveCard();
                             adaptiveCard.parse(this.card);
                             let renderedCard = adaptiveCard.render();
                             document.getElementsByClassName('adaptiveCardContainer')[0].appendChild(renderedCard);
-                            if (this.state.message.buttonLink) {
-                                let link = this.state.message.buttonLink;
-                                adaptiveCard.onExecuteAction = function (action) { window.open(link, '_blank'); };
-                            }
                         });
                     });
                 });

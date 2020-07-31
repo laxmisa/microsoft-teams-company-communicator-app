@@ -34,6 +34,7 @@ export const getInitAdaptiveCard = () => {
                     "type": "Input.ChoiceSet",
                     "id": "myChoice",
                     "isMultiSelect": false,
+                    "style": "expanded",
                     "choices": [
                         {
                             "title": "1",
@@ -105,15 +106,10 @@ export const getCardBtnLink = (card: any) => {
 }
 
 export const setCardBtn = (card: any, buttonTitle?: string, buttonLink?: string) => {
-    if (buttonTitle) {
-        
-        card.actions = [            
+    card.actions = [            
             {
                 "type": "Action.Submit",
                 "title": buttonTitle
             }
         ];
-    } else {
-        delete card.actions;
-    }
 }

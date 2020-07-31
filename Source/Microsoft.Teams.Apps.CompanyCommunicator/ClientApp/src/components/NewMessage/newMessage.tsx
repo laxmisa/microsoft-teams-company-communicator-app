@@ -612,7 +612,7 @@ export default class NewMessage extends React.Component<INewMessageProps, formSt
                 this.updateCard();
             });
         } else {
-            delete this.card.actions;
+            //delete this.card.actions;
             this.setState({
                 btnTitle: event.target.value,
             }, () => {
@@ -652,7 +652,7 @@ export default class NewMessage extends React.Component<INewMessageProps, formSt
                 this.updateCard();
             });
         } else {
-            delete this.card.actions;
+            //delete this.card.actions;
             this.setState({
                 btnLink: event.target.value
             }, () => {
