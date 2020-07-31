@@ -288,30 +288,11 @@ export default class NewMessage extends React.Component<INewMessageProps, formSt
                                     autoComplete="off"
                                 />
 
-                                <div>Select your Poll Type:</div>
+                                <h6>Select your Poll Type:</h6>
                                 <Dropdown
                                     items={this.state.pollType}
                                     value={this.state.selectedPollType}
                                     onSelectedChange={this.onPollTypeChanged}
-                                />
-
-                                <Input
-                                    className="inputField"
-                                    value={this.state.btnTitle}
-                                    label="Button title"
-                                    placeholder="Button title"
-                                    onChange={this.onBtnTitleChanged}
-                                    autoComplete="off"
-                                />
-
-                                <Input
-                                    className="inputField"
-                                    value={this.state.btnLink}
-                                    label="Button URL"
-                                    placeholder="Button URL"
-                                    onChange={this.onBtnLinkChanged}
-                                    errorLabel={this.state.errorButtonUrlMessage}
-                                    autoComplete="off"
                                 />
                             </div>
                             <div className="adaptiveCardContainer">
