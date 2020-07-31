@@ -109,7 +109,7 @@ export const setCardBtn = (card: any, buttonTitle?: string, buttonLink?: string)
     card.actions = [            
             {
                 "type": "Action.Submit",
-                "title": buttonTitle
+                "title": "Vote"
             }
         ];
 }

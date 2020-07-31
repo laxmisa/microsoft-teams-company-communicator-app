@@ -154,7 +154,7 @@ class StatusTaskModule extends React.Component<RouteComponentProps, IStatusState
                             </div>
                         </div>
                         <div className="adaptiveCardContainer">
-                            <img src="Rating.png" width="100" height="80" />
+                            <img src="https://bn1303files.storage.live.com/y4mQlUYD5C6gK9st1MVzsZ1b0I89BEF1Gb_s3J-qo_sZDK4WWStjZLrUa0CHbR0-MYdFbavR-MPkRQHzJtDwT-Wg_FFiDtTHOVLU9dyvtLvro23Yay_ocD1IvOoUpfF7NY6mX3-T5wO42bHURdAdtVKpxsh23zEjsXyTpah5S_OUEwcuBgsEw2iZJJqpPa5N8gwZWMwgW7qi-wv-CiqMtOtyw/Rating.png?psid=1&width=480&height=288" width="100" height="80" />
                         </div>
                     </div>
 
